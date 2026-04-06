@@ -1,0 +1,32 @@
+name: Publiser blogginnlegg
+
+on:
+  schedule:
+    # Kjører hver natt kl. 06:00 norsk tid (05:00 UTC)
+    - cron: '0 5 * * *'
+  workflow_dispatch: # Gjør det mulig å kjøre manuelt fra GitHub
+
+jobs:
+  publiser:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Hent koden fra GitHub
+        uses: actions/checkout@v4
+
+      - name: Sett opp Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Bygg ny innhold.js
+        run: node bygg-innhold.js
+
+      - name: Last opp innhold.js til Hostinger via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./dist/
+          server-dir: /public_html/data/
