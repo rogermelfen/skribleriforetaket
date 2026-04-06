@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Hva andre sier — Skribleriforetaket</title>
+  <meta name="description" content="Tilbakemeldinger fra redaktører, oppdragsgivere og lesere som har samarbeidet med Skribleriforetaket.">
+  <meta name="author" content="Skribleriforetaket">
+  <link rel="canonical" href="https://skribleriforetaket.no/testimonials.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://skribleriforetaket.no/testimonials.html">
+  <meta property="og:title" content="Hva andre sier — Skribleriforetaket">
+  <meta property="og:description" content="Tilbakemeldinger fra redaktører, oppdragsgivere og lesere.">
+  <meta property="og:image" content="https://skribleriforetaket.no/assets/images/logo.png">
+
+  <!-- Fonter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    /* ── Testimonial-spesifikke stiler ── */
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+
+    .testimonial-kort {
+      background: #fff;
+      border: 1px solid var(--farge-linje, #e8e0d5);
+      border-radius: 10px;
+      padding: 2rem 2rem 1.5rem;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      transition: box-shadow 0.2s ease, transform 0.2s ease;
+    }
+
+    .testimonial-kort:hover {
+      box-shadow: 0 6px 24px rgba(90, 50, 20, 0.10);
+      transform: translateY(-2px);
+    }
+
+    .testimonial-sitat-ikon {
+      font-size: 3.5rem;
+      line-height: 1;
+      color: var(--farge-aksent, #c45e1a);
+      font-family: Georgia, serif;
+      margin-bottom: -0.5rem;
+      opacity: 0.55;
+      user-select: none;
+    }
+
+    .testimonial-tekst {
+      font-family: 'Lora', Georgia, serif;
+      font-style: italic;
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--farge-tekst, #3a2a1a);
+      flex: 1;
+    }
+
+    .testimonial-skillelinje {
+      border: none;
+      border-top: 1px solid var(--farge-linje, #e8e0d5);
+      margin: 0;
+    }
+
+    .testimonial-person {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .testimonial-avatar {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: var(--farge-aksent, #c45e1a);
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .testimonial-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+
+    .testimonial-navn {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--farge-tekst, #3a2a1a);
+    }
+
+    .testimonial-rolle {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.82rem;
+      color: var(--farge-tekst-lys, #7a6a5a);
+    }
+
+    .testimonial-stjerner {
+      color: var(--farge-aksent, #c45e1a);
+      font-size: 0.95rem;
+      letter-spacing: 0.1em;
+      margin-top: 0.1rem;
+    }
+
+    /* CTA-boks nederst */
+    .testimonial-cta {
+      margin-top: 3.5rem;
+      background: var(--farge-bakgrunn-kort, #f5ede3);
+      border-radius: 10px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+
+    .testimonial-cta h2 {
+      font-family: 'Lora', Georgia, serif;
+      font-size: 1.5rem;
+      color: var(--farge-tekst, #3a2a1a);
+      margin-bottom: 0.75rem;
+    }
+
+    .testimonial-cta p {
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      color: var(--farge-tekst-lys, #7a6a5a);
+      margin-bottom: 1.5rem;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @media (max-width: 900px) {
+      .testimonial-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+
+  <!-- Schema.org strukturert data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://skribleriforetaket.no/#person",
+        "name": "Rolf",
+        "url": "https://skribleriforetaket.no",
+        "jobTitle": "Frilansjournalist og skribent",
+        "description": "Frilansjournalist og skribent med særlig interesse for kultur, historie og samfunn. Publisert i Aftenposten Historie, Aftenposten Junior og Ledernytt.",
+        "image": "https://skribleriforetaket.no/assets/images/portrett.webp",
+        "sameAs": []
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://skribleriforetaket.no/#website",
+        "url": "https://skribleriforetaket.no",
+        "name": "Skribleriforetaket",
+        "description": "Portefølje og blogg for frilansjournalist og skribent Rolf.",
+        "publisher": {
+          "@id": "https://skribleriforetaket.no/#person"
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <div id="nettsted-header"></div>
+
+  <main id="hovedinnhold">
+
+    <!-- Sidetopp -->
+    <section class="side-topp">
+      <div class="container">
+        <h1>Hva andre sier</h1>
+        <p class="side-ingress">Tilbakemeldinger fra redaktører, oppdragsgivere og lesere.</p>
+      </div>
+    </section>
+
+    <!-- Testimonial-grid -->
+    <section class="innhold-seksjon">
+      <div class="container">
+        <div class="testimonial-grid">
+
+          <!-- Testimonial 1 -->
+          <div class="testimonial-kort">
+            <div class="testimonial-sitat-ikon" aria-hidden="true">&ldquo;</div>
+            <p class="testimonial-tekst">
+              Rolf leverte en velskrevet og grundig dokumentert artikkel om et uvanlig historisk tema, formidlet på en måte som fungerte godt for Aftenposten Histories lesere - og dette var hans aller første publiserte artikkel. Ryddig å samarbeide med og leverte til avtalt tid.
+            </p>
+            <hr class="testimonial-skillelinje">
+            <div class="testimonial-person">
+              <div class="testimonial-avatar" aria-hidden="true">AH</div>
+              <div class="testimonial-meta">
+                <span class="testimonial-navn">Fredrik Larsen, redaktør, Aftenposten Historie</span>
+                <span class="testimonial-rolle">Om artikkelen om Shavian-alfabetet, publisert november 2025</span>
+                <span class="testimonial-stjerner" aria-label="5 av 5 stjerner">★★★★★</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="testimonial-kort">
+            <div class="testimonial-sitat-ikon" aria-hidden="true">&ldquo;</div>
+            <p class="testimonial-tekst">
+              Rolf Sunde leverte saken «Krigshundene i Ukraina» til Aftenposten Junior med en idé han selv hadde utviklet. Saken er et godt eksempel på vellykket journalistikk for barn: bakteppet er krevende og komplekst, men inngangen er menneskelig, engasjerende og forståelig for målgruppen. Sunde var profesjonell og lett å jobbe med, leverte til avtalt tid og viste en god forståelse for hvem vi skriver for.
+            </p>
+            <hr class="testimonial-skillelinje">
+            <div class="testimonial-person">
+              <div class="testimonial-avatar" aria-hidden="true">AJ</div>
+              <div class="testimonial-meta">
+                <span class="testimonial-navn">Eric B Utheim, interim nyhetsleder</span>
+                <span class="testimonial-rolle">Aftenposten Junior</span>
+                <span class="testimonial-stjerner" aria-label="5 av 5 stjerner">★★★★★</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div class="testimonial-kort">
+            <div class="testimonial-sitat-ikon" aria-hidden="true">&ldquo;</div>
+            <p class="testimonial-tekst">
+              Rolf Sunde leverte et gjennomarbeidet og lettlest intervju med klar struktur og god forståelse for Ledernytts målgruppe. Profesjonell å samarbeide med, og leverte til avtalt tid.
+            </p>
+            <hr class="testimonial-skillelinje">
+            <div class="testimonial-person">
+              <div class="testimonial-avatar" aria-hidden="true">LN</div>
+              <div class="testimonial-meta">
+                <span class="testimonial-navn">Imran Jamil Naik, redaktør, Ledernytt</span>
+                <span class="testimonial-rolle">Ledernytt</span>
+                <span class="testimonial-stjerner" aria-label="5 av 5 stjerner">★★★★★</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- CTA -->
+        <div class="testimonial-cta">
+          <h2>Vil du samarbeide?</h2>
+          <p>Ta kontakt for artikkeloppdrag, innholdsproduksjon eller redaksjonelt samarbeid.</p>
+          <a href="kontakt.html" class="knapp knapp-primær">Ta kontakt</a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <div id="nettsted-footer"></div>
+
+  <script src="js/komponenter.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

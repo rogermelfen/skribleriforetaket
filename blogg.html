@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO -->
+  <title>Blogg om skriving og journalistikk — Rolf Sunde | Skribleriforetaket</title>
+  <meta name="description" content="Egne innlegg om skriving, journalistikk, prosess og bransje. Løpende tanker og refleksjoner fra frilansjournalist og skribent Rolf Sunde.">
+  <meta name="author" content="Rolf Sunde">
+  <link rel="canonical" href="https://skribleriforetaket.no/blogg.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://skribleriforetaket.no/blogg.html">
+  <meta property="og:title" content="Blogg om skriving og journalistikk — Rolf Sunde">
+  <meta property="og:description" content="Egne innlegg om skriving, journalistikk, prosess og bransje fra frilansjournalist Rolf Sunde.">
+  <meta property="og:image" content="https://skribleriforetaket.no/assets/images/portrett.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Blogg om skriving og journalistikk — Rolf Sunde">
+  <meta name="twitter:description" content="Egne innlegg om skriving, journalistikk, prosess og bransje.">
+  <meta name="twitter:image" content="https://skribleriforetaket.no/assets/images/portrett.webp">
+
+  <!-- Fonter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+
+  <!-- Schema.org strukturert data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://skribleriforetaket.no/#person",
+        "name": "Rolf Sunde",
+        "url": "https://skribleriforetaket.no",
+        "jobTitle": "Frilansjournalist og skribent",
+        "description": "Frilansjournalist og skribent med særlig interesse for kultur, historie og samfunn. Publisert i Aftenposten Historie, Aftenposten Junior og Ledernytt.",
+        "image": "https://skribleriforetaket.no/assets/images/portrett.webp",
+        "sameAs": [
+          "https://www.linkedin.com/in/oversetter-rolf-sunde/"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://skribleriforetaket.no/#website",
+        "url": "https://skribleriforetaket.no",
+        "name": "Skribleriforetaket",
+        "description": "Portefølje og blogg for frilansjournalist og skribent Rolf Sunde.",
+        "publisher": {
+          "@id": "https://skribleriforetaket.no/#person"
+        }
+      },
+      {
+        "@type": "Blog",
+        "@id": "https://skribleriforetaket.no/blogg.html#webpage",
+        "url": "https://skribleriforetaket.no/blogg.html",
+        "name": "Blogg om skriving og journalistikk — Rolf Sunde",
+        "isPartOf": { "@id": "https://skribleriforetaket.no/#website" },
+        "about": { "@id": "https://skribleriforetaket.no/#person" }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <div id="nettsted-header"></div>
+
+  <main id="hovedinnhold">
+
+    <!-- Sideoverskrift -->
+    <div class="side-header">
+      <div class="container">
+        <h1>Blogg om skriving og journalistikk</h1>
+        <p>Egne innlegg om skriving, journalistisk prosess, frilanstilværelsen og mediebransjen — fra en frilansjournalist i det norske medielandskapet.</p>
+      </div>
+    </div>
+
+    <!-- Filterbar -->
+    <div class="filterbar" role="navigation" aria-label="Filtrer etter kategori">
+      <div class="filterbar-indre">
+        <span class="filter-etikett">Kategori:</span>
+        <button class="filter-knapp aktiv" data-filter="alle">Alle</button>
+        <button class="filter-knapp" data-filter="skriving">Skriving</button>
+        <button class="filter-knapp" data-filter="prosess">Prosess</button>
+        <button class="filter-knapp" data-filter="lesning">Lesning</button>
+        <button class="filter-knapp" data-filter="bransje">Bransje</button>
+        <button class="filter-knapp" data-filter="tips">Tips</button>
+        <button class="filter-knapp" data-filter="refleksjon">Refleksjon</button>
+      </div>
+    </div>
+
+    <!-- Blogginnlegg-grid -->
+    <section class="innhold-seksjon" aria-labelledby="blogg-tittel">
+      <div class="container">
+        <h2 class="sr-only" id="blogg-tittel">Alle blogginnlegg</h2>
+        <div class="innhold-grid" id="blogg-grid">
+          <!-- Fylles av blogg-liste.js -->
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="nettsted-footer"></div>
+
+  <script src="data/innhold.js"></script>
+  <script src="js/komponenter.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/blogg-liste.js"></script>
+</body>
+</html>

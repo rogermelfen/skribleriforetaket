@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Forside -->
+  <url>
+    <loc>https://skribleriforetaket.no/</loc>
+    <lastmod>2026-03-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Hovedsider -->
+  <url>
+    <loc>https://skribleriforetaket.no/artikler.html</loc>
+    <lastmod>2026-03-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://skribleriforetaket.no/blogg.html</loc>
+    <lastmod>2026-03-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://skribleriforetaket.no/om.html</loc>
+    <lastmod>2026-03-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Individuelle blogginnlegg -->
+  <!-- NB: URL-er med ?slug= kan ha begrenset indeksering i Google.
+       Vurder å gå over til mappebaserte URL-er (/blogg/slug/) på sikt. -->
+  <url>
+    <loc>https://skribleriforetaket.no/blogg-innlegg.html?slug=slik-pitchet-jeg-til-aftenposten</loc>
+    <lastmod>2026-03-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://skribleriforetaket.no/blogg-innlegg.html?slug=talmodighet-er-ikke-min-greie</loc>
+    <lastmod>2026-03-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://skribleriforetaket.no/blogg-innlegg.html?slug=magasinjournalist-og-innholdsskaper</loc>
+    <lastmod>2026-03-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://skribleriforetaket.no/blogg-innlegg.html?slug=det-ukjente-i-det-kjente</loc>
+    <lastmod>2026-03-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://skribleriforetaket.no/blogg-innlegg.html?slug=hvorfor-du-bor-skrive-gratis</loc>
+    <lastmod>2026-03-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Støttesider -->
+  <url>
+    <loc>https://skribleriforetaket.no/testimonials.html</loc>
+    <lastmod>2026-03-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://skribleriforetaket.no/kontakt.html</loc>
+    <lastmod>2026-03-25</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+</urlset>

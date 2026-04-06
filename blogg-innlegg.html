@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO (oppdateres dynamisk av blogg-innlegg.js) -->
+  <title>Blogg — Skribleriforetaket</title>
+  <meta name="description" content="">
+  <meta name="author" content="Rolf Sunde">
+  <link rel="canonical" href="">
+
+  <!-- Open Graph (oppdateres dynamisk) -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="">
+  <meta property="og:title" content="">
+  <meta property="og:description" content="">
+  <meta property="og:image" content="https://skribleriforetaket.no/assets/images/portrett.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter Card (oppdateres dynamisk) -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="">
+  <meta name="twitter:description" content="">
+  <meta name="twitter:image" content="https://skribleriforetaket.no/assets/images/portrett.webp">
+
+  <!-- Fonter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    /* ── Blogginnlegg-layout ── */
+    .innlegg-wrapper {
+      max-width: 740px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 5rem;
+    }
+
+    .tilbake-lenke {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.875rem;
+      color: var(--farge-tekst-myk);
+      text-decoration: none;
+      margin-bottom: 2rem;
+      transition: color 0.2s;
+    }
+
+    .tilbake-lenke::before { content: '←'; }
+    .tilbake-lenke:hover { color: var(--farge-aksent); }
+
+    .innlegg-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .innlegg-tittel {
+      font-family: var(--font-serif);
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      line-height: 1.2;
+      margin-bottom: 1.25rem;
+    }
+
+    .innlegg-ingress {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.15rem;
+      color: var(--farge-tekst-myk);
+      line-height: 1.65;
+      border-left: 3px solid var(--farge-aksent);
+      padding-left: 1.25rem;
+      margin-bottom: 2rem;
+    }
+
+    .innlegg-bilde {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      border-radius: var(--radius);
+      margin-bottom: 2rem;
+    }
+
+    .innlegg-bilde-placeholder {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: linear-gradient(135deg, #e8ddd0 0%, #d4c4b0 100%);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--farge-tekst-myk);
+      font-size: 0.85rem;
+      margin-bottom: 2rem;
+    }
+
+    .innlegg-brodtekst {
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--farge-tekst);
+    }
+
+    .innlegg-brodtekst p { margin-bottom: 1.4rem; }
+
+    .innlegg-brodtekst h2 {
+      font-family: var(--font-sans);
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 2rem 0 0.75rem;
+      color: var(--farge-tekst);
+    }
+
+    .innlegg-brodtekst ul,
+    .innlegg-brodtekst ol {
+      padding-left: 1.5rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .innlegg-brodtekst li { margin-bottom: 0.4rem; }
+
+    .innlegg-tags {
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--farge-kant);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      align-items: center;
+    }
+
+    .innlegg-tags-etikett {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--farge-tekst-myk);
+      margin-right: 0.25rem;
+    }
+
+    .tag-merke {
+      display: inline-block;
+      background: var(--farge-overflate);
+      border: 1px solid var(--farge-kant);
+      border-radius: 2rem;
+      padding: 0.2rem 0.75rem;
+      font-size: 0.8rem;
+      color: var(--farge-tekst-myk);
+    }
+
+    .feil-melding {
+      text-align: center;
+      padding: 4rem 1.5rem;
+      color: var(--farge-tekst-myk);
+    }
+  </style>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+
+  <!-- Schema.org strukturert data (oppdateres dynamisk) -->
+  <script type="application/ld+json" id="schema-innlegg">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://skribleriforetaket.no/#person",
+        "name": "Rolf Sunde",
+        "url": "https://skribleriforetaket.no",
+        "jobTitle": "Frilansjournalist og skribent",
+        "description": "Frilansjournalist og skribent med særlig interesse for kultur, historie og samfunn. Publisert i Aftenposten Historie, Aftenposten Junior og Ledernytt.",
+        "image": "https://skribleriforetaket.no/assets/images/portrett.webp",
+        "sameAs": [
+          "https://www.linkedin.com/in/oversetter-rolf-sunde/"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://skribleriforetaket.no/#website",
+        "url": "https://skribleriforetaket.no",
+        "name": "Skribleriforetaket",
+        "description": "Portefølje og blogg for frilansjournalist og skribent Rolf Sunde.",
+        "publisher": {
+          "@id": "https://skribleriforetaket.no/#person"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Hjelpeskript: oppdaterer SEO-tagger dynamisk når innlegg er lastet -->
+  <script>
+    function oppdaterSEO(innlegg) {
+      var baseUrl = 'https://skribleriforetaket.no/';
+      var url = baseUrl + 'blogg-innlegg.html?id=' + innlegg.id;
+      var tittel = innlegg.tittel + ' — Skribleriforetaket';
+      var beskrivelse = innlegg.ingress || innlegg.beskrivelse || '';
+      var bilde = innlegg.bilde
+        ? baseUrl + innlegg.bilde
+        : baseUrl + 'assets/images/portrett.webp';
+
+      // Title og meta
+      document.title = tittel;
+      document.querySelector('meta[name="description"]').setAttribute('content', beskrivelse);
+      document.querySelector('link[rel="canonical"]').setAttribute('href', url);
+
+      // Open Graph
+      document.querySelector('meta[property="og:url"]').setAttribute('content', url);
+      document.querySelector('meta[property="og:title"]').setAttribute('content', tittel);
+      document.querySelector('meta[property="og:description"]').setAttribute('content', beskrivelse);
+      if (innlegg.bilde) {
+        document.querySelector('meta[property="og:image"]').setAttribute('content', bilde);
+      }
+
+      // Twitter Card
+      document.querySelector('meta[name="twitter:title"]').setAttribute('content', tittel);
+      document.querySelector('meta[name="twitter:description"]').setAttribute('content', beskrivelse);
+      if (innlegg.bilde) {
+        document.querySelector('meta[name="twitter:image"]').setAttribute('content', bilde);
+      }
+
+      // Schema.org BlogPosting
+      var schema = {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://skribleriforetaket.no/#person",
+            "name": "Rolf Sunde",
+            "url": "https://skribleriforetaket.no",
+            "jobTitle": "Frilansjournalist og skribent",
+            "sameAs": ["https://www.linkedin.com/in/oversetter-rolf-sunde/"]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://skribleriforetaket.no/#website",
+            "url": "https://skribleriforetaket.no",
+            "name": "Skribleriforetaket"
+          },
+          {
+            "@type": "BlogPosting",
+            "@id": url + "#innlegg",
+            "url": url,
+            "headline": innlegg.tittel,
+            "description": beskrivelse,
+            "image": bilde,
+            "datePublished": innlegg.dato || '',
+            "author": { "@id": "https://skribleriforetaket.no/#person" },
+            "isPartOf": { "@id": "https://skribleriforetaket.no/#website" }
+          }
+        ]
+      };
+      document.getElementById('schema-innlegg').textContent = JSON.stringify(schema);
+    }
+  </script>
+</head>
+<body>
+
+  <div id="nettsted-header"></div>
+
+  <main id="hovedinnhold">
+    <div class="innlegg-wrapper">
+
+      <a href="blogg.html" class="tilbake-lenke">Tilbake til bloggen</a>
+
+      <!-- Innhold injiseres av blogg-innlegg.js -->
+      <div id="innlegg-innhold">
+        <p class="feil-melding">Laster innlegg…</p>
+      </div>
+
+    </div>
+  </main>
+
+  <div id="nettsted-footer"></div>
+
+  <script src="data/innhold.js"></script>
+  <script src="js/komponenter.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/blogg-innlegg.js"></script>
+</body>
+</html>

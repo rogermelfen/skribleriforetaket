@@ -1,0 +1,49 @@
+# ============================================================
+# Skribleriforetaket.no — Apache-konfigurasjon
+# Kompatibel med Hostinger webhotell (Apache/LiteSpeed)
+# ============================================================
+
+# Tegnsett
+AddDefaultCharset UTF-8
+
+# Feilsider
+ErrorDocument 404 /404.html
+
+# Sikkerhetshoder
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# Komprimering
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript text/plain
+</IfModule>
+
+# Nettleserbufring
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/png  "access plus 1 month"
+  ExpiresByType image/jpg  "access plus 1 month"
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/gif  "access plus 1 month"
+  ExpiresByType image/svg+xml "access plus 1 month"
+  ExpiresByType text/css   "access plus 1 week"
+  ExpiresByType application/javascript "access plus 1 week"
+</IfModule>
+
+# Redirects: gamle anmeldelser-sider videresendes til blogg
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{THE_REQUEST} /index\.html
+  RewriteRule ^index\.html$ / [R=301,L]
+</IfModule>
+
+# Fjern .html-endelse fra URL (valgfritt)
+# <IfModule mod_rewrite.c>
+#   RewriteEngine On
+#   RewriteCond %{REQUEST_FILENAME} !-d
+#   RewriteCond %{REQUEST_FILENAME}.html -f
+#   RewriteRule ^(.*)$ $1.html [L]
+# </IfModule>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Side ikke funnet — Skribleriforetaket</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .feil-seksjon {
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 4rem 1.5rem;
+    }
+    .feil-kode {
+      font-size: 5rem;
+      font-family: var(--font-serif);
+      color: var(--farge-aksent);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+  </style>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+
+  <!-- Schema.org strukturert data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://skribleriforetaket.no/#person",
+        "name": "Rolf",
+        "url": "https://skribleriforetaket.no",
+        "jobTitle": "Frilansjournalist og skribent",
+        "description": "Frilansjournalist og skribent med særlig interesse for kultur, historie og samfunn. Publisert i Aftenposten Historie, Aftenposten Junior og Ledernytt.",
+        "image": "https://skribleriforetaket.no/assets/images/portrett.webp",
+        "sameAs": []
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://skribleriforetaket.no/#website",
+        "url": "https://skribleriforetaket.no",
+        "name": "Skribleriforetaket",
+        "description": "Portefølje og blogg for frilansjournalist og skribent Rolf.",
+        "publisher": {
+          "@id": "https://skribleriforetaket.no/#person"
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div id="nettsted-header"></div>
+
+  <main id="hovedinnhold">
+    <section class="feil-seksjon">
+      <div>
+        <p class="feil-kode">404</p>
+        <h1>Siden ble ikke funnet</h1>
+        <p style="color:var(--farge-tekst-myk); margin: 1rem auto 2rem; max-width:40ch;">
+          Siden du leter etter eksisterer ikke, eller har blitt flyttet.
+        </p>
+        <a href="index.html" class="knapp knapp-primær">Gå til forsiden</a>
+      </div>
+    </section>
+  </main>
+
+  <div id="nettsted-footer"></div>
+
+  <script src="data/innhold.js"></script>
+  <script src="js/komponenter.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

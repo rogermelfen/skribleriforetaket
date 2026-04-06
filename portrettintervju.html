@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO -->
+  <title>Portrettintervju — Skribleriforetaket</title>
+  <meta name="description" content="Meld deg på til portrettintervju. Jeg ser etter personer med substans, erfaringer eller historier som kan egne seg for et godt redaksjonelt intervju.">
+  <meta name="author" content="Skribleriforetaket">
+  <link rel="canonical" href="https://skribleriforetaket.no/portrettintervju.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://skribleriforetaket.no/portrettintervju.html">
+  <meta property="og:title" content="Portrettintervju — Skribleriforetaket">
+  <meta property="og:description" content="Meld deg på til portrettintervju. Jeg ser etter personer med substans, erfaringer eller historier som kan egne seg for et godt redaksjonelt intervju.">
+  <meta property="og:image" content="https://skribleriforetaket.no/assets/images/logo.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+
+  <!-- Fonter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    /* ── Skjema-stiler ─────────────────────────────────────── */
+    .skjema-seksjon {
+      padding: var(--gap-seksjon) 1.5rem;
+    }
+
+    .skjema-layout {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .skjema-intro h2 {
+      margin-bottom: 1rem;
+    }
+
+    .skjema-intro p {
+      color: var(--farge-tekst-myk);
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+
+    .skjema-merknad {
+      margin-top: 1.5rem;
+      padding: 1rem 1.25rem;
+      background-color: rgba(184, 76, 0, 0.06);
+      border-left: 3px solid var(--farge-aksent);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      font-size: 0.88rem;
+      color: var(--farge-tekst-myk);
+      font-style: italic;
+    }
+
+    /* Selve skjemaet */
+    .portrett-skjema {
+      background-color: var(--farge-overflate);
+      border: 1px solid var(--farge-kant);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+    }
+
+    .skjema-gruppe {
+      margin-bottom: 1.5rem;
+    }
+
+    .skjema-gruppe label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--farge-tekst-myk);
+      margin-bottom: 0.4rem;
+    }
+
+    .skjema-gruppe label .obligatorisk {
+      color: var(--farge-aksent);
+      margin-left: 2px;
+    }
+
+    .skjema-gruppe input,
+    .skjema-gruppe textarea,
+    .skjema-gruppe select {
+      width: 100%;
+      padding: 0.65rem 0.85rem;
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      color: var(--farge-tekst);
+      background-color: var(--farge-bakgrunn);
+      border: 1px solid var(--farge-kant);
+      border-radius: var(--radius);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    .skjema-gruppe input:focus,
+    .skjema-gruppe textarea:focus,
+    .skjema-gruppe select:focus {
+      outline: none;
+      border-color: var(--farge-aksent);
+      box-shadow: 0 0 0 3px rgba(184, 76, 0, 0.12);
+    }
+
+    .skjema-gruppe textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .skjema-gruppe-rad {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .skjema-skillelinje {
+      border: none;
+      border-top: 1px solid var(--farge-kant);
+      margin: 2rem 0;
+    }
+
+    .skjema-seksjonstittel {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--farge-tekst);
+      margin-bottom: 1.25rem;
+    }
+
+    /* Radio-gruppe */
+    .radio-gruppe {
+      display: flex;
+      gap: 2rem;
+      margin-top: 0.4rem;
+    }
+
+    .radio-gruppe label {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.95rem;
+      font-weight: 400;
+      letter-spacing: 0;
+      text-transform: none;
+      color: var(--farge-tekst);
+      cursor: pointer;
+    }
+
+    .radio-gruppe input[type="radio"] {
+      width: 1rem;
+      height: 1rem;
+      flex-shrink: 0;
+      accent-color: var(--farge-aksent);
+      cursor: pointer;
+      /* Fjern overstyrende stiler fra generell input-regel */
+      background-color: transparent;
+      border: none;
+      padding: 0;
+      box-shadow: none;
+    }
+
+    .radio-gruppe input[type="radio"]:focus {
+      box-shadow: none;
+      border: none;
+      outline: 2px solid var(--farge-aksent);
+      outline-offset: 2px;
+    }
+
+    /* Send-knapp */
+    .skjema-send {
+      margin-top: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .skjema-send .knapp {
+      font-size: 0.95rem;
+      padding: 0.75rem 2rem;
+      cursor: pointer;
+      border: none;
+    }
+
+    .skjema-personvern {
+      font-size: 0.82rem;
+      color: var(--farge-tekst-myk);
+    }
+
+    /* Suksessmelding */
+    .skjema-suksess {
+      display: none;
+      padding: 1.5rem;
+      background-color: rgba(184, 76, 0, 0.06);
+      border: 1px solid var(--farge-aksent);
+      border-radius: var(--radius);
+      text-align: center;
+      margin-top: 1.5rem;
+    }
+
+    .skjema-suksess p {
+      color: var(--farge-tekst);
+      font-size: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .skjema-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .skjema-gruppe-rad {
+        grid-template-columns: 1fr;
+      }
+
+      .portrett-skjema {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="nettsted-header"></div>
+
+  <main id="hoveddinnhold">
+
+    <!-- Sideoverskrift -->
+    <div class="side-header">
+      <div class="container">
+        <h1>Portrettintervju</h1>
+        <p>Jeg ser etter personer med en historie, et veivalg eller en erfaring det kan lages et godt intervju om.</p>
+      </div>
+    </div>
+
+    <!-- Skjema -->
+    <section class="skjema-seksjon" aria-labelledby="skjema-tittel">
+      <div class="container">
+        <div class="skjema-layout">
+
+          <!-- Venstre: Forklaring -->
+          <aside class="skjema-intro">
+            <h2 id="skjema-tittel">Hvem ser jeg etter?</h2>
+
+            <p>
+              Jeg er frilansskribent og trener meg på portrettintervju. Jeg ser etter personer med substans — et uvanlig yrke, et veivalg, et prosjekt, en erfaring eller en historie som kan egne seg for et godt redaksjonelt intervju.
+            </p>
+
+            <p>
+              Intervjuet gjøres på journalistisk vis og kan bli publisert på denne nettsiden. Dersom intervjuet er sterkt nok, kan det også bli pitchet til relevante magasiner eller aviser.
+            </p>
+
+            <p>
+              Dette er ikke reklameinnhold. Jeg gjør et redaksjonelt utvalg, og publisering avtales alltid med deg i forkant.
+            </p>
+
+            <div class="skjema-merknad">
+              Innsending er ikke garanti for intervju eller publisering. Jeg tar kontakt med utvalgte kandidater.
+            </div>
+          </aside>
+
+          <!-- Høyre: Skjema -->
+          <div>
+            <form
+              class="portrett-skjema"
+              action="send-skjema.php"
+              method="POST"
+              id="portrett-skjema"
+            >
+
+              <!-- Personalia -->
+              <p class="skjema-seksjonstittel">Om deg</p>
+
+              <div class="skjema-gruppe-rad">
+                <div class="skjema-gruppe">
+                  <label for="navn">Navn <span class="obligatorisk">*</span></label>
+                  <input type="text" id="navn" name="navn" required autocomplete="name" placeholder="For- og etternavn">
+                </div>
+                <div class="skjema-gruppe">
+                  <label for="alder">Alder</label>
+                  <input type="number" id="alder" name="alder" min="16" max="120" placeholder="f.eks. 38">
+                </div>
+              </div>
+
+              <div class="skjema-gruppe-rad">
+                <div class="skjema-gruppe">
+                  <label for="bosted">Bosted</label>
+                  <input type="text" id="bosted" name="bosted" placeholder="By eller sted">
+                </div>
+                <div class="skjema-gruppe">
+                  <label for="yrke">Yrke / rolle <span class="obligatorisk">*</span></label>
+                  <input type="text" id="yrke" name="yrke" required placeholder="f.eks. Arkitekt, gründer, forfatter">
+                </div>
+              </div>
+
+              <div class="skjema-gruppe-rad">
+                <div class="skjema-gruppe">
+                  <label for="epost">E-post <span class="obligatorisk">*</span></label>
+                  <input type="email" id="epost" name="epost" required autocomplete="email" placeholder="din@epost.no">
+                </div>
+                <div class="skjema-gruppe">
+                  <label for="telefon">Telefon</label>
+                  <input type="tel" id="telefon" name="telefon" autocomplete="tel" placeholder="+47 000 00 000">
+                </div>
+              </div>
+
+              <div class="skjema-gruppe">
+                <label for="profil">LinkedIn, nettside eller annen profil</label>
+                <input type="url" id="profil" name="profil" placeholder="https://...">
+              </div>
+
+              <hr class="skjema-skillelinje">
+
+              <!-- Historien -->
+              <p class="skjema-seksjonstittel">Historien din</p>
+
+              <div class="skjema-gruppe">
+                <label for="hvem">Kort: Hvem er du? <span class="obligatorisk">*</span></label>
+                <textarea id="hvem" name="hvem" required placeholder="Et avsnitt om deg selv — bakgrunn, hva du gjør, hva som driver deg."></textarea>
+              </div>
+
+              <div class="skjema-gruppe">
+                <label for="historie">Hva er historien, erfaringen eller prosjektet ditt? <span class="obligatorisk">*</span></label>
+                <textarea id="historie" name="historie" required placeholder="Beskriv det du ønsker å bli intervjuet om. Hva er det som er unikt, uvanlig eller interessant?"></textarea>
+              </div>
+
+              <div class="skjema-gruppe">
+                <label for="hvorfor">Hvorfor mener du dette kan egne seg som et portrettintervju?</label>
+                <textarea id="hvorfor" name="hvorfor" placeholder="Hva gjør historien din relevant eller interessant for andre å lese?"></textarea>
+              </div>
+
+              <div class="skjema-gruppe">
+                <label for="tidligere">Har du blitt intervjuet om dette før?</label>
+                <input type="text" id="tidligere" name="tidligere" placeholder="Nei / Ja, i [medium]">
+              </div>
+
+              <hr class="skjema-skillelinje">
+
+              <!-- Samtykke -->
+              <p class="skjema-seksjonstittel">Publisering</p>
+
+              <div class="skjema-gruppe">
+                <label>Er du komfortabel med at intervjuet kan publiseres på nettsiden min dersom vi blir enige? <span class="obligatorisk">*</span></label>
+                <div class="radio-gruppe">
+                  <label>
+                    <input type="radio" name="publisering" value="ja" required>
+                    Ja
+                  </label>
+                  <label>
+                    <input type="radio" name="publisering" value="nei">
+                    Nei
+                  </label>
+                </div>
+              </div>
+
+              <!-- Send -->
+              <div class="skjema-send">
+                <button type="submit" class="knapp knapp-primær">Send inn</button>
+                <span class="skjema-personvern">
+                  Opplysningene brukes kun til å vurdere intervjuforespørselen din.
+                </span>
+              </div>
+
+            </form>
+
+            <div class="skjema-suksess" id="skjema-suksess" role="alert">
+              <p><strong>Takk for at du meldte deg på!</strong><br>
+              Jeg leser alle innmeldinger og tar kontakt med utvalgte kandidater.</p>
+            </div>
+
+            <div class="skjema-suksess" id="skjema-feil" role="alert" style="border-color: #c0392b; background-color: rgba(192,57,43,0.06);">
+              <p><strong>Noe gikk galt.</strong><br>
+              Prøv igjen, eller send e-post direkte til <a href="mailto:kontakt@skribleriforetaket.no">kontakt@skribleriforetaket.no</a>.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="nettsted-footer"></div>
+
+  <script src="data/innhold.js"></script>
+  <script src="js/komponenter.js"></script>
+  <script src="js/main.js"></script>
+
+  <script>
+    // Vis suksess- eller feilmelding basert på URL-parameter etter PHP-redirect
+    const params = new URLSearchParams(window.location.search);
+    const sendt = params.get('sendt');
+    const form = document.getElementById('portrett-skjema');
+    const suksess = document.getElementById('skjema-suksess');
+    const feil = document.getElementById('skjema-feil');
+
+    if (sendt === 'ok' && form && suksess) {
+      form.style.display = 'none';
+      suksess.style.display = 'block';
+    } else if (sendt === 'feil' && feil) {
+      feil.style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>
