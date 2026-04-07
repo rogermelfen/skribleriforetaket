@@ -22,11 +22,11 @@ jobs:
       - name: Bygg ny innhold.js
         run: node bygg-innhold.js
 
-      - name: Last opp innhold.js til Hostinger via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      - name: Last opp innhold.js til Hostinger via SFTP
+        uses: appleboy/scp-action@v0.1.7
         with:
-          server: ${{ secrets.FTP_SERVER }}
+          host: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./dist/
-          server-dir: /public_html/data/
+          source: dist/innhold.js
+          target: /home/u757637834/domains/skribleriforetaket.no/public_html/data/
