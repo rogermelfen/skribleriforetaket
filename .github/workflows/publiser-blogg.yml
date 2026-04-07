@@ -2,9 +2,8 @@ name: Publiser blogginnlegg
 
 on:
   schedule:
-    # Kjører hver natt kl. 06:00 norsk tid (05:00 UTC)
     - cron: '0 5 * * *'
-  workflow_dispatch: # Gjør det mulig å kjøre manuelt fra GitHub
+  workflow_dispatch:
 
 jobs:
   publiser:
